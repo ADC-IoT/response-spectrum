@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 beta = 1/4
 
 # Frame
-h = 0.05
+h = 0.03
 m1 = 100
 
 # System
@@ -22,9 +22,9 @@ N = 1
 
 # Wave
 Ndiv = 1
-dt = 0.01
+dt = 0.02
 ddt = dt/float(Ndiv)
-Ndata = 4096
+Ndata = 2688
 EQ = 0.01  # cm to m
 
 dis1 = 0
@@ -32,7 +32,7 @@ vel1 = 0
 acc1 = 0
 
 # INPUT FILE
-file = open('L2G2.csv', 'r', encoding="utf-8")
+file = open('ELC-NS.csv', 'r', encoding="utf-8")
 A0 = np.loadtxt(file, usecols=(0,), delimiter=',', skiprows=3)
 F = -m1*A0
 
@@ -55,8 +55,8 @@ def nmk(beta,m1,c1,k1,dt,ff,acc1,vel1,dis1):
 
 
 # calculation
-for t in range(1,100):
-    T = 0.05 * t
+for t in range(1,500):
+    T = 0.01 * t
     Tr.append(T)
     k1 = 4*np.pi**2*m1/T**2
     c1 = 2*h*np.sqrt(k1*m1)
